@@ -1,6 +1,7 @@
 //Get values
 function getValues() {
     let payRate = document.getElementById("hourlyRate").value;
+    if(payRate > 6.04){
     if(parseFloat(payRate) && parseFloat(payRate) > 0){
         payRate = parseFloat(payRate);
         let grossPay = payRate * 2080;
@@ -12,6 +13,9 @@ function getValues() {
         let next = calculateNext(taxBracket);
         formatResults(grossPay, taxBracket, taxLiability, netPay, netWeekly, next);
     }
+    else{alert("Enter a valid amount");}
+    }
+    else if (payRate > 0 && payRate < 6.04){alert("You won't have any taxes");}
     else{alert("Enter a valid amount");}
 }
 //calculation functions
