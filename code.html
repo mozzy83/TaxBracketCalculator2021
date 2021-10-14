@@ -63,17 +63,20 @@
 //Get values
 function getValues() {
     let payRate = document.getElementById("hourlyRate").value;
-    if(parseFloat(payRate) && parseFloat(payRate) > 0){
-        payRate = parseFloat(payRate);
-        let grossPay = payRate * 2080;
-        let taxable = grossPay - 12550;
-        let taxBracket = calculateTaxBracket(taxable);
-        let taxLiability = taxable * taxBracket;
-        let netPay = grossPay - taxLiability;
-        let netWeekly = netPay/52;
-        let next = calculateNext(taxBracket);
-        formatResults(grossPay, taxBracket, taxLiability, netPay, netWeekly, next);
+    if(payRate > 6.04){
+        if(parseFloat(payRate) && parseFloat(payRate) > 0){
+            payRate = parseFloat(payRate);
+            let grossPay = payRate * 2080;
+            let taxable = grossPay - 12550;
+            let taxBracket = calculateTaxBracket(taxable);
+            let taxLiability = taxable * taxBracket;
+            let netPay = grossPay - taxLiability;
+            let netWeekly = netPay/52;
+            let next = calculateNext(taxBracket);
+            formatResults(grossPay, taxBracket, taxLiability, netPay, netWeekly, next);
+        }else{alert("Enter a valid amount");}
     }
+    else if (payRate > 0 && payRate < 6.04){alert("You won't have any taxes");}
     else{alert("Enter a valid amount");}
 }
 //calculation functions
@@ -182,7 +185,7 @@ function displayResults(grossPay, taxBracket, taxLiability, netPay, netWeekly, n
                     <div class="col col-lg-4">
                         <p>The Code is structured in five main functions.</p>
                         <h5>getValues()</h5>
-                        <p>The first function retrieves the values entered by the user and validates their data type. It then declares variables and sets their values. It utilizes the next two functions in the process...</p>
+                        <p>The first function retrieves the values entered by the user and validates their data type. If there is no tax responsibility due to a low income the user is notified with an alert. It then declares variables and sets their values. It utilizes the next two functions in that process...</p>
                         <h5>calculateTaxBracket()</h5>
                         <p>The second function calculates which tax bracket you are in based off of your taxable income, which is your gross income minus the standard deduction.</p>
                         <h5>calculateNext()</h5>

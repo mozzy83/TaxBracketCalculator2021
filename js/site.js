@@ -2,18 +2,17 @@
 function getValues() {
     let payRate = document.getElementById("hourlyRate").value;
     if(payRate > 6.04){
-    if(parseFloat(payRate) && parseFloat(payRate) > 0){
-        payRate = parseFloat(payRate);
-        let grossPay = payRate * 2080;
-        let taxable = grossPay - 12550;
-        let taxBracket = calculateTaxBracket(taxable);
-        let taxLiability = taxable * taxBracket;
-        let netPay = grossPay - taxLiability;
-        let netWeekly = netPay/52;
-        let next = calculateNext(taxBracket);
-        formatResults(grossPay, taxBracket, taxLiability, netPay, netWeekly, next);
-    }
-    else{alert("Enter a valid amount");}
+        if(parseFloat(payRate) && parseFloat(payRate) > 0){
+            payRate = parseFloat(payRate);
+            let grossPay = payRate * 2080;
+            let taxable = grossPay - 12550;
+            let taxBracket = calculateTaxBracket(taxable);
+            let taxLiability = taxable * taxBracket;
+            let netPay = grossPay - taxLiability;
+            let netWeekly = netPay/52;
+            let next = calculateNext(taxBracket);
+            formatResults(grossPay, taxBracket, taxLiability, netPay, netWeekly, next);
+        }else{alert("Enter a valid amount");}
     }
     else if (payRate > 0 && payRate < 6.04){alert("You won't have any taxes");}
     else{alert("Enter a valid amount");}
