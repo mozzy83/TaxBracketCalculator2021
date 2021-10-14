@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #1d5888;
+    --primary-color: #303034;
     --secondary-color: #ff993b;
     --dark-color: #292929;
     --white-color: #e7e7e7;
@@ -20,6 +20,7 @@ footer {
 h1,h2,h3,h4,h5,h6 {
     color: var(--primary-color);
 }
+
 
 footer {
     padding-right: 0rem;
